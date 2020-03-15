@@ -8,6 +8,7 @@ Created on Thu Mar  5 20:18:39 2020
 import csv
 import time
 from datetime import datetime
+import dateutil.parser
 
 starttime = time.time()
 fn = 'trip_data_12.csv'
@@ -28,8 +29,8 @@ fdt = None
 min_rate_code = None
 max_rate_code = None
 
-min_pickup_date = None
-max_pickup_date = None
+min_pickup_datetime = None
+max_dropoff_datetime = None
 
 min_passenger_count = None
 max_passenger_count = None
@@ -62,21 +63,22 @@ mean_pc_stats = [[0 for i in range(24)] for j in range(2)]
 for row in reader:
     if n > 0:
         
-        fdt = datetime.strptime(row[5], '%Y-%m-%d %H:%M:%S')
+        fdt_pickup = datetime.strptime(row[5], '%Y-%m-%d %H:%M:%S')
+        fdt_dropoff = datetime.strptime(row[6], '%Y-%m-%d %H:%M:%S')
         
-        if fdt.hour not in hours_no_values[0]:
-            hours_no_values[0][fdt.hour] = fdt.hour
-            mean_pc_stats[0][fdt.hour] = fdt.hour
+        if fdt_pickup.hour not in hours_no_values[0]:
+            hours_no_values[0][fdt_pickup.hour] = fdt_pickup.hour
+            mean_pc_stats[0][fdt_pickup.hour] = fdt_pickup.hour
             
-        mean_pc_stats[1][fdt.hour] += int(row[7])
-        hours_no_values[1][fdt.hour] += 1
+        mean_pc_stats[1][fdt_pickup.hour] += int(row[7])
+        hours_no_values[1][fdt_pickup.hour] += 1
         
         if n == 1:
             min_rate_code = int(row[3])
             max_rate_code = int(row[3])
     
-            min_pickup_date = fdt.date()
-            max_pickup_date = fdt.date()
+            min_pickup_datetime = dateutil.parser.parse(str(fdt_pickup))
+            max_dropoff_datetime = dateutil.parser.parse(str(fdt_dropoff))
             
             min_passenger_count = int(row[7])
             max_passenger_count = int(row[7])
@@ -105,10 +107,10 @@ for row in reader:
             if int(row[3]) < min_rate_code:
                 min_rate_code = int(row[3])
                 
-            if fdt.date() > max_pickup_date:
-                max_pickup_date = fdt.date()
-            if fdt.date() < min_pickup_date:
-                min_pickup_date = fdt.date()
+            if dateutil.parser.parse(str(fdt_dropoff)) > max_dropoff_datetime:
+                max_dropoff_datetime = dateutil.parser.parse(str(fdt_dropoff))
+            if dateutil.parser.parse(str(fdt_pickup)) < min_pickup_datetime:
+                min_pickup_datetime = dateutil.parser.parse(str(fdt_pickup))
                 
             if int(row[7]) > max_passenger_count:
                 max_passenger_count = int(row[7])
@@ -200,8 +202,8 @@ for i in range(0, 24):
     print("hour %2d: %2.3f" % (i, mean_pc_stats[1][i]))
 
 print("\nTime range:")
-print("Min date: " + str(min_pickup_date))
-print("Max date: " + str(max_pickup_date))
+print("Min date: " + str(min_pickup_datetime))
+print("Max date: " + str(max_dropoff_datetime))
 print("\nTotal row number: " + str(n-1))
 print("\nGeographic range:")
 
