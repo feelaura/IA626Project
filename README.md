@@ -198,10 +198,9 @@ print("Max longitude: " + str(max_longitude))
 Answers to the questions
 ************************
 1.	What time range does your data cover?
-<br>
-From 12/1/2013  12:00:00 AM to 1/3/2014  4:31:27 PM
+<br>From 12/1/2013  12:00:00 AM to 1/3/2014  4:31:27 PM
 2.	How many rows are there total?
-13971118
+<br>13971118
 3.	What are the field names?  Give descriptions for each field.
 medallion: also known as a CPNC (Certificate of Public Necessity and Convenience), is a transferable permit in the United States allowing a taxicab driver to operate.
 hack_license: it is known as a New York City Taxi Operators License.
