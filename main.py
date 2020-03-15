@@ -203,8 +203,8 @@ for i in range(0, 24):
     print("hour %2d: %2.3f" % (i, mean_pc_stats[1][i]))
 
 print("\nTime range:")
-print("Min date: " + str(min_pickup_datetime))
-print("Max date: " + str(max_dropoff_datetime))
+print("Min datetime: " + str(min_pickup_datetime))
+print("Max datetime: " + str(max_dropoff_datetime))
 print("\nTotal row number: " + str(n-1))
 print("\nGeographic range:")
 
