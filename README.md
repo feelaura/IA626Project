@@ -201,10 +201,10 @@ Answers to the questions
 <br>From 12/1/2013  12:00:00 AM to 1/3/2014  4:31:27 PM
 2.	How many rows are there total?
 <br>13971118
-3.	What are the field names?  Give descriptions for each field.
-medallion: also known as a CPNC (Certificate of Public Necessity and Convenience), is a transferable permit in the United States allowing a taxicab driver to operate.
-hack_license: it is known as a New York City Taxi Operators License.
-vendor_id: 
+3.	What are the field names? Give descriptions for each field.
+<br>medallion: also known as a CPNC (Certificate of Public Necessity and Convenience), is a transferable permit in the United States allowing a taxicab driver to operate.
+<br>hack_license: it is known as a New York City Taxi Operators License.
+<br>vendor_id: 
 
 4.	Give some sample data for each field.
 4.	What MySQL data types would you need to store each of the fields?
