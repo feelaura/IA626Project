@@ -1,7 +1,7 @@
 # IA626
-************************************
-*        Code description          *
-************************************
+*****************
+Code descriptions
+*****************
 In the first part of my project I wrote some code to open csv files:
 <br>
 ```python
@@ -194,6 +194,28 @@ print("Max latitude: " + str(max_latitude))
 print("Min longitude: " + str(min_longitude))
 print("Max longitude: " + str(max_longitude))
 ```
+************************
+Answers to the questions
+************************
+1.	What time range does your data cover?
+From 12/1/2013  12:00:00 AM to 1/3/2014  4:31:27 PM
+2.	How many rows are there total?
+13971118
+3.	What are the field names?  Give descriptions for each field.
+medallion: also known as a CPNC (Certificate of Public Necessity and Convenience), is a transferable permit in the United States allowing a taxicab driver to operate.
+hack_license: it is known as a New York City Taxi Operators License.
+vendor_id: 
+
+4.	Give some sample data for each field.
+4.	What MySQL data types would you need to store each of the fields?
+a.	int(xx), varchar(xx), date, datetime, bool, decimal(m, d)
+5.	What is the geographic range of your data (min/max - X/Y)?
+a.	Plot this (approximately on a map)
+6.	What are the distinct values for each field? (If applicable)
+7.	For other numeric types besides lat and lon, what are the min and max values?
+8.	Create a chart which shows the average number of passengers each hour of the day.
+9.	Create a new CSV file which has only one out of every thousand rows.
+10.	Repeat step 8 with the reduced dataset and compare the two charts.
 
 
 ![Passenger count per hour](images/passenger_count_per_hour_plot.png)
