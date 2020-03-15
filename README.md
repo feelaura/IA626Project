@@ -204,10 +204,21 @@ Answers to the questions
 3.	What are the field names? Give descriptions for each field.
 <br>medallion: also known as a CPNC (Certificate of Public Necessity and Convenience), is a transferable permit in the United States allowing a taxicab driver to operate.
 <br>hack_license: it is known as a New York City Taxi Operators License.
-<br>vendor_id: 
-
+<br>vendor_id: A designation for the technology vendor that provided the record. CMT=Creative Mobile Technologies VTS= VeriFone, Inc. DDS=Digital Dispatch Systems.
+<br>rate_code: Standard City Rate (Rate Code 1), for trips between (to and from) Manhattan and JFK International Airport, the flat fare is $52.00 plus any tolls using Rate Code 2 on the meter.
+<br>store_and_fwd_flag: store and forward flag.
+<br>pickup_datetime: date and time for pickup
+<br>dropoff_datetime: date and time for dropoff
+<br>passenger_count: how many passengers
+<br>trip_time_in_secs: how long did the trip take in seconds
+<br>trip_distance: the distance of the trip
+<br>pickup_longitude: the longitude of pickup location
+<br>pickup_latitude: the latitude of pickup location
+<br>dropoff_longitude: the longitude of dropoff location
+<br>dropoff_latitude: the latitude of dropoff location
 4.	Give some sample data for each field.
-4.	What MySQL data types would you need to store each of the fields?
+![Sample data for each field](images/sample_data.png)
+5.	What MySQL data types would you need to store each of the fields?
 a.	int(xx), varchar(xx), date, datetime, bool, decimal(m, d)
 5.	What is the geographic range of your data (min/max - X/Y)?
 a.	Plot this (approximately on a map)
