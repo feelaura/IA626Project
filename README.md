@@ -205,7 +205,7 @@ Answers to the questions
 <br>medallion: also known as a CPNC (Certificate of Public Necessity and Convenience), is a transferable permit in the United States allowing a taxicab driver to operate.
 <br>hack_license: it is known as a New York City Taxi Operators License.
 <br>vendor_id: A designation for the technology vendor that provided the record. CMT=Creative Mobile Technologies VTS= VeriFone, Inc. DDS=Digital Dispatch Systems.
-<br>rate_code: Standard City Rate (Rate Code 1), for trips between (to and from) Manhattan and JFK International Airport, the flat fare is $52.00 plus any tolls using Rate Code 2 on the meter.
+<br>rate_code: Standard City Rate (Rate Code 1), for trips between (to and from) Manhattan and JFK International Airport, uses Rate Code 2 on the meter.
 <br>store_and_fwd_flag: store and forward flag.
 <br>pickup_datetime: date and time for pickup
 <br>dropoff_datetime: date and time for dropoff
@@ -219,15 +219,37 @@ Answers to the questions
 4.	Give some sample data for each field.
 ![Sample data for each field](images/sample_data.png)
 5.	What MySQL data types would you need to store each of the fields?
-a.	int(xx), varchar(xx), date, datetime, bool, decimal(m, d)
-5.	What is the geographic range of your data (min/max - X/Y)?
-a.	Plot this (approximately on a map)
-6.	What are the distinct values for each field? (If applicable)
-7.	For other numeric types besides lat and lon, what are the min and max values?
-8.	Create a chart which shows the average number of passengers each hour of the day.
-9.	Create a new CSV file which has only one out of every thousand rows.
-10.	Repeat step 8 with the reduced dataset and compare the two charts.
-
-
+<br>medallion: varchar(50)
+<br>hack_license: varchar(50)
+<br>vendor_id: varchar(5)
+<br>rate_code: int(10)
+<br>store_and_fwd_flag: varchar(5)
+<br>pickup_datetime: datetime
+<br>dropoff_datetime: datetime
+<br>passenger_count: int(10)
+<br>trip_time_in_secs: int(10)
+<br>trip_distance: decimal(5,2)
+<br>pickup_longitude: decimal(8,6)
+<br>pickup_latitude: decimal(8,6)
+<br>dropoff_longitude: decimal(8,6)
+<br>dropoff_latitude: decimal(8,6)
+6.	What is the geographic range of your data (min/max - X/Y)?
+![Sample data for each field](images/sample_data.png)
+7.	What are the distinct values for each field? (If applicable)
+8.	For other numeric types besides lat and lon, what are the min and max values?
+<br>Min rate_code: 0
+<br>Max rate_code: 210
+<br>Min passenger_count: 0
+<br>Max passenger_count: 9
+<br>Min trip_time_in_secs: 0
+<br>Max trip_time_in_secs: 10800
+<br>Min trip_distance: 0
+<br>Max trip_distance: 100
+9.	Create a chart which shows the average number of passengers each hour of the day.
+10.	Create a new CSV file which has only one out of every thousand rows.
+11.	Repeat step 8 with the reduced dataset and compare the two charts.
 ![Passenger count per hour](images/passenger_count_per_hour_plot.png)
+
+
+
 
