@@ -1,4 +1,7 @@
 # IA626
+************************************
+*        Code description          *
+************************************
 In the first part of my project I wrote some code to open csv files:
 <br>
 ```python
@@ -92,7 +95,7 @@ else:
     if float(row[9]) < min_trip_distance:
         min_trip_distance = float(row[9])
 ```
-Used latitude range from 40 to 42 and longitude range from -75 to -70 to filter outliers from lat-long cooordinates for New York city area:
+Used latitude range from 40 to 42 and longitude range from -75 to -70 to filter out the outliers from lat-long cooordinates for New York city area:
 <br>
 ```python
 try:
