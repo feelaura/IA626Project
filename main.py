@@ -24,7 +24,8 @@ f2 = open('subset_data_12.csv','a')
 writer = csv.writer(f2, delimiter=',', lineterminator='\n')
 
 n = 0
-fdt = None
+fdt_pickup = None
+fdt_dropoff = None
 
 min_rate_code = None
 max_rate_code = None
