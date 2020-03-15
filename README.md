@@ -16,3 +16,4 @@ f2 = open('subset_data_12.csv','a')
 writer = csv.writer(f2, delimiter=',', lineterminator='\n')
 ```
 ![Passenger count per hour](images/passenger_count_per_hour_plot.png)
+
