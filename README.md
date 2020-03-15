@@ -1,5 +1,5 @@
 # IA626
-1. In the first part of my project I wrote some code to open csv files:
+In the first part of my project I wrote some code to open csv files:
 <br>
 ```python
 starttime = time.time()
@@ -14,7 +14,7 @@ reader = csv.reader(f)
 f2 = open('subset_data_12.csv','a')
 writer = csv.writer(f2, delimiter=',', lineterminator='\n')
 ```
-2. I defined two lists for mean passenger count calculation:
+I defined two lists for mean passenger count calculation:
 <br>
 ```python
 #Define a list to contain no of values recorded per hour
