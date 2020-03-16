@@ -17,7 +17,7 @@ reader = csv.reader(f)
 f2 = open('subset_data_12.csv','a')
 writer = csv.writer(f2, delimiter=',', lineterminator='\n')
 ```
-I defined two lists for mean passenger count calculation:
+I defined two lists for mean passenger count calculation and three lists to contain the distinct values:
 <br>
 ```python
 #Define a list to contain no of values recorded per hour
@@ -25,6 +25,10 @@ hours_no_values = [[0 for i in range(24)] for j in range(2)]
 
 #Define a list to contain mean passenger count stats per hour
 mean_pc_stats = [[0 for i in range(24)] for j in range(2)]
+
+#Define lists to contain the distinct values for vendor_id, rate_code and 
+# passenger_count.
+vendor_id, rate_code, passenger_count = [], [], []
 ```
 I used dateutil.parser module to grab the datetime for comparision:
 <br>
@@ -34,6 +38,16 @@ fdt_dropoff = datetime.strptime(row[6], '%Y-%m-%d %H:%M:%S')
 
 min_pickup_datetime = dateutil.parser.parse(str(fdt_pickup))
 max_dropoff_datetime = dateutil.parser.parse(str(fdt_dropoff))
+```
+Grabed the distinct values for vendor_id, rate_code and passenger_count:
+<br>
+```python
+if row[2] not in vendor_id:
+    vendor_id.append(row[2])
+if row[3] not in rate_code:
+    rate_code.append(row[3])
+if row[7] not in passenger_count:
+    passenger_count.append(row[7])
 ```
 Assigned the values to min/max variables with the first recorded data:
 <br>
@@ -204,7 +218,7 @@ Answers to the questions
 3.	What are the field names? Give descriptions for each field.
 <br>medallion: also known as a CPNC (Certificate of Public Necessity and Convenience), is a transferable permit in the United States allowing a taxicab driver to operate.
 <br>hack_license: it is known as a New York City Taxi Operators License.
-<br>vendor_id: A designation for the technology vendor that provided the record. CMT=Creative Mobile Technologies VTS= VeriFone, Inc. DDS=Digital Dispatch Systems.
+<br>vendor_id: A designation for the technology vendor that provided the record. CMT=Creative Mobile Technologies VTS= VeriFone, Inc.
 <br>rate_code: Standard City Rate (Rate Code 1), for trips between (to and from) Manhattan and JFK International Airport, uses Rate Code 2 on the meter.
 <br>store_and_fwd_flag: store and forward flag.
 <br>pickup_datetime: date and time for pickup
@@ -240,7 +254,9 @@ Answers to the questions
 <br>Max longitude: -72.026741
 ![Geographic range](images/geographic_range.png)
 7.	What are the distinct values for each field? (If applicable)
-
+<br>vendor_id: ['VTS', 'CMT']
+<br>rate_code: ['1', '2', '3', '5', '4', '0', '8', '6', '13', '210', '7', '9', '65', '15']
+<br>passenger_count: ['1', '6', '5', '3', '4', '2', '7', '0', '8', '9']
 8.	For other numeric types besides lat and lon, what are the min and max values?
 <br>Min rate_code: 0
 <br>Max rate_code: 210

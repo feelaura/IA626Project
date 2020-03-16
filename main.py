@@ -61,11 +61,22 @@ hours_no_values = [[0 for i in range(24)] for j in range(2)]
 #Define a list to contain mean passenger count stats per hour
 mean_pc_stats = [[0 for i in range(24)] for j in range(2)]
 
+#Define lists to contain the distinct values for vendor_id, rate_code and 
+# passenger_count.
+vendor_id, rate_code, passenger_count = [], [], []
+
 for row in reader:
     if n > 0:
         
         fdt_pickup = datetime.strptime(row[5], '%Y-%m-%d %H:%M:%S')
         fdt_dropoff = datetime.strptime(row[6], '%Y-%m-%d %H:%M:%S')
+        
+        if row[2] not in vendor_id:
+            vendor_id.append(row[2])
+        if row[3] not in rate_code:
+            rate_code.append(row[3])
+        if row[7] not in passenger_count:
+            passenger_count.append(row[7])
         
         if fdt_pickup.hour not in hours_no_values[0]:
             hours_no_values[0][fdt_pickup.hour] = fdt_pickup.hour
@@ -241,6 +252,13 @@ print("\nMin trip_time_in_secs: " + str(min_trip_time_in_secs))
 print("Max trip_time_in_secs: " + str(max_trip_time_in_secs))
 print("\nMin trip_distance: " + str(min_trip_distance))
 print("Max trip_distance: " + str(max_trip_distance))
+
+print("\nDistinct values for vendor_id:")
+print(vendor_id)
+print("\nDistinct values for rate_code:")
+print(rate_code)
+print("\nDistinct values for passenger_count:")
+print(passenger_count)
 
 f.close()
 f2.close()  
