@@ -234,7 +234,11 @@ Answers to the questions
 <br>dropoff_longitude: decimal(8,6)
 <br>dropoff_latitude: decimal(8,6)
 6.	What is the geographic range of your data (min/max - X/Y)?
-![Sample data for each field](images/sample_data.png)
+<br>Min latitude: 40.500240
+<br>Max latitude: 41.487167
+<br>Min longitude: -74.974403
+<br>Max longitude: -72.026741
+![Geographic range](images/geographic_range.png)
 7.	What are the distinct values for each field? (If applicable)
 8.	For other numeric types besides lat and lon, what are the min and max values?
 <br>Min rate_code: 0
@@ -246,8 +250,10 @@ Answers to the questions
 <br>Min trip_distance: 0
 <br>Max trip_distance: 100
 9.	Create a chart which shows the average number of passengers each hour of the day.
+<br>See plot below.
 10.	Create a new CSV file which has only one out of every thousand rows.
 11.	Repeat step 8 with the reduced dataset and compare the two charts.
+<br>See plot below.
 ![Passenger count per hour](images/passenger_count_per_hour_plot.png)
 
 
