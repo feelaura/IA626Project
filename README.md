@@ -39,7 +39,7 @@ fdt_dropoff = datetime.strptime(row[6], '%Y-%m-%d %H:%M:%S')
 min_pickup_datetime = dateutil.parser.parse(str(fdt_pickup))
 max_dropoff_datetime = dateutil.parser.parse(str(fdt_dropoff))
 ```
-Grabed the distinct values for vendor_id, rate_code and passenger_count:
+Grabbed the distinct values for vendor_id, rate_code and passenger_count:
 <br>
 ```python
 if row[2] not in vendor_id:
