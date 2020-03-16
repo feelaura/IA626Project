@@ -128,8 +128,8 @@ for row in reader:
             if float(row[9]) < min_trip_distance:
                 min_trip_distance = float(row[9])
 
-#Lat-long coordinates for New York city area are in range: Latitude from 40 to
-#42 and longitude from -75 to -70, use them to filter outliers.
+#Lat-long coordinates for New York city area are in range: Latitude from 40.5 to
+#41.5 and longitude from -75 to -72, use them to filter outliers.
 
             try:
                 pickup_longitude = float(row[10])
@@ -137,7 +137,7 @@ for row in reader:
                 print(row[10] + ' is not a valid longitude!')
                 pickup_longitude = min_pickup_longitude
                 
-            if pickup_longitude > -75 and pickup_longitude < -70:
+            if pickup_longitude > -75 and pickup_longitude < -72:
                 if pickup_longitude > max_pickup_longitude:
                     max_pickup_longitude = pickup_longitude
                 if pickup_longitude < min_pickup_longitude:
@@ -151,7 +151,7 @@ for row in reader:
                 print(row[11] + ' is not a valid latitude!')
                 pickup_latitude = min_pickup_latitude
                 
-            if pickup_latitude > 40 and pickup_latitude < 42:
+            if pickup_latitude > 40.5 and pickup_latitude < 41.5:
                 if min_pickup_latitude > max_pickup_latitude:
                     max_pickup_latitude = pickup_latitude
                 if min_pickup_latitude < min_pickup_latitude:
@@ -165,7 +165,7 @@ for row in reader:
                 print(row[12] + ' is not a valid longitude!')
                 dropoff_longitude = min_dropoff_longitude
                 
-            if dropoff_longitude > -75 and dropoff_longitude < -70:
+            if dropoff_longitude > -75 and dropoff_longitude < -72:
                 if dropoff_longitude > max_dropoff_longitude:
                     max_dropoff_longitude = dropoff_longitude
                 if dropoff_longitude < min_dropoff_longitude:
@@ -179,7 +179,7 @@ for row in reader:
                 print(row[13] + ' is not a valid latitude!')
                 dropoff_latitude = min_dropoff_latitude
                 
-            if dropoff_latitude > 40 and dropoff_latitude < 42:
+            if dropoff_latitude > 40.5 and dropoff_latitude < 41.5:
                 if dropoff_latitude > max_dropoff_latitude:
                     max_dropoff_latitude = dropoff_latitude
                 if dropoff_latitude < min_dropoff_latitude:

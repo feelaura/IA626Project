@@ -95,7 +95,7 @@ else:
     if float(row[9]) < min_trip_distance:
         min_trip_distance = float(row[9])
 ```
-Used latitude range from 40 to 42 and longitude range from -75 to -70 to filter out the outliers from lat-long cooordinates for New York city area:
+Used latitude range from 40.5 to 41.5 and longitude range from -75 to -72 to filter out the outliers from lat-long cooordinates for New York city area:
 <br>
 ```python
 try:
@@ -104,7 +104,7 @@ except ValueError:
     print(row[10] + ' is not a valid longitude!')
     pickup_longitude = min_pickup_longitude
     
-if pickup_longitude > -75 and pickup_longitude < -70:
+if pickup_longitude > -75 and pickup_longitude < -72:
     if pickup_longitude > max_pickup_longitude:
         max_pickup_longitude = pickup_longitude
     if pickup_longitude < min_pickup_longitude:
@@ -118,7 +118,7 @@ except ValueError:
     print(row[11] + ' is not a valid latitude!')
     pickup_latitude = min_pickup_latitude
     
-if pickup_latitude > 40 and pickup_latitude < 42:
+if pickup_latitude > 40.5 and pickup_latitude < 41.5:
     if min_pickup_latitude > max_pickup_latitude:
         max_pickup_latitude = pickup_latitude
     if min_pickup_latitude < min_pickup_latitude:
@@ -132,7 +132,7 @@ except ValueError:
     print(row[12] + ' is not a valid longitude!')
     dropoff_longitude = min_dropoff_longitude
     
-if dropoff_longitude > -75 and dropoff_longitude < -70:
+if dropoff_longitude > -75 and dropoff_longitude < -72:
     if dropoff_longitude > max_dropoff_longitude:
         max_dropoff_longitude = dropoff_longitude
     if dropoff_longitude < min_dropoff_longitude:
@@ -146,7 +146,7 @@ except ValueError:
     print(row[13] + ' is not a valid latitude!')
     dropoff_latitude = min_dropoff_latitude
     
-if dropoff_latitude > 40 and dropoff_latitude < 42:
+if dropoff_latitude > 40.5 and dropoff_latitude < 41.5:
     if dropoff_latitude > max_dropoff_latitude:
         max_dropoff_latitude = dropoff_latitude
     if dropoff_latitude < min_dropoff_latitude:
@@ -240,6 +240,7 @@ Answers to the questions
 <br>Max longitude: -72.026741
 ![Geographic range](images/geographic_range.png)
 7.	What are the distinct values for each field? (If applicable)
+
 8.	For other numeric types besides lat and lon, what are the min and max values?
 <br>Min rate_code: 0
 <br>Max rate_code: 210
@@ -252,7 +253,7 @@ Answers to the questions
 9.	Create a chart which shows the average number of passengers each hour of the day.
 <br>See plot below.
 10.	Create a new CSV file which has only one out of every thousand rows.
-11.	Repeat step 8 with the reduced dataset and compare the two charts.
+11.	Repeat step 9 with the reduced dataset and compare the two charts.
 <br>See plot below.
 ![Passenger count per hour](images/passenger_count_per_hour_plot.png)
 
